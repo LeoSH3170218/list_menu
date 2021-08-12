@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:list_menu/icons/custom_icon.dart';
+import 'package:list_menu/model/menu_list_model.dart';
 import 'package:list_menu/widget/menu_list.dart';
 
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+  MyHomePage({required this.title});
   final String title;
 
   @override
@@ -29,10 +30,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  List<MenuList> menuList = [
-    MenuList(text: "Profile Management", icon: MyFlutterApp.user_settings, callBack: (){}),
-    MenuList(text: "Transfers", icon: MyFlutterApp.exchange, callBack: (){}),
-    MenuList(text: "Abouts", icon: Icons.info, callBack: (){})
+  List<MenuListModel> menuList = [
+    MenuListModel(text: "Profile Management", icon: MyFlutterApp.user_settings, callBack: (){}),
+    MenuListModel(text: "Transfers", icon: MyFlutterApp.exchange, callBack: (){}),
+    MenuListModel(text: "Abouts", icon: Icons.info, callBack: (){})
   ];
 
   @override
@@ -62,63 +63,6 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
 
-    );
-  }
-}
-
-class CustomButton extends StatelessWidget {
-  final VoidCallback callback;
-  final String text;
-  final Color color;
-  final IconData icon;
-  final double width;
-
-  const CustomButton({Key key, this.callback, this.text,
-      this.color, this.icon, this.width})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      //width: width,
-      padding: EdgeInsets.only(top: 20, left: 20, right: 20),
-      child: Material(
-        color: color,
-        elevation: 6.0,
-        borderRadius: BorderRadius.circular(10.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            SizedBox(
-              width: 20,
-            ),
-            Container(
-              width: 1,
-              child: Icon(
-                //Icons.info,
-                MyFlutterApp.user_settings,
-                color: Color.fromRGBO(36, 62, 110, 0.85),
-              ),
-            ),
-            SizedBox(
-              width: 20,
-            ),
-            MaterialButton(
-              onPressed: callback,
-              minWidth: 100.0,
-              height: 45,
-              child: Text(
-                text,
-                style: TextStyle(
-                    color: Color.fromRGBO(36, 62, 110, 1),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18
-                ),
-              ),
-            ),
-          ],
-        )
-      ),
     );
   }
 }

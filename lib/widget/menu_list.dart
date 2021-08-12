@@ -6,9 +6,9 @@ class MenuList extends StatefulWidget {
   VoidCallback callBack;
 
   MenuList({
-    @required this.text,
-    @required this.icon,
-    @required this.callBack
+    required this.text,
+    required this.icon,
+    required this.callBack
 });
 
   @override
@@ -16,9 +16,9 @@ class MenuList extends StatefulWidget {
 }
 
 class _MenuListState extends State<MenuList> {
-  @required String text;
-  @required IconData icon;
-  @required VoidCallback callBack;
+  late String text;
+  late IconData icon;
+  late VoidCallback callBack;
 
   _MenuListState(String text, IconData icon, VoidCallback callBack){
     this.text = text;
@@ -43,11 +43,10 @@ class CustomButton extends StatelessWidget {
   final String text;
   final Color color;
   final IconData icon;
-  final double width;
+  //final double width;
 
-  const CustomButton({Key key, this.callback, this.text,
-    this.color, this.icon, this.width})
-      : super(key: key);
+  const CustomButton({required this.callback, required this.text,
+    required this.color, required this.icon});
 
   @override
   Widget build(BuildContext context) {
