@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:list_menu/icons/custom_icons.dart';
+import 'package:list_menu/icons/custom_icon.dart';
 import 'package:list_menu/widget/menu_list.dart';
 
 
@@ -30,8 +30,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   List<MenuList> menuList = [
-    MenuList(text: "Profile Management", icon: Icons.settings, callBack: (){}),
-    MenuList(text: "Transfers", icon: Icons.transfer_within_a_station, callBack: (){}),
+    MenuList(text: "Profile Management", icon: MyFlutterApp.user_settings, callBack: (){}),
+    MenuList(text: "Transfers", icon: MyFlutterApp.exchange, callBack: (){}),
     MenuList(text: "Abouts", icon: Icons.info, callBack: (){})
   ];
 
@@ -95,7 +95,8 @@ class CustomButton extends StatelessWidget {
             Container(
               width: 1,
               child: Icon(
-                Icons.info,
+                //Icons.info,
+                MyFlutterApp.user_settings,
                 color: Color.fromRGBO(36, 62, 110, 0.85),
               ),
             ),
